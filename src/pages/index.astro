@@ -1,11 +1,247 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import "../styles/global.css";
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Home">
+
+  <!-- ═══════════════════════════════════════════════
+       HERO SECTION
+  ══════════════════════════════════════════════════ -->
+  <section class="relative h-screen min-h-[600px] max-h-[900px] flex items-center overflow-hidden">
+
+    <!-- Hero Image (replace src with your actual shop photo) -->
+    <div class="absolute inset-0">
+      <img
+        src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=1600&q=80"
+        alt="Scoops & Smiles Ice Cream Shop exterior"
+        class="w-full h-full object-cover object-center"
+      />
+      <!-- Warm overlay -->
+      <div class="absolute inset-0 bg-gradient-to-r from-chocolate/70 via-chocolate/40 to-transparent"></div>
+      <!-- Bottom fade -->
+      <div class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-cream-50 to-transparent"></div>
+    </div>
+
+    <!-- Sprinkle decoration -->
+    <div class="absolute inset-0 bg-sprinkle-pattern opacity-30 pointer-events-none"></div>
+
+    <!-- Hero Content -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div class="max-w-xl">
+        <p class="font-script text-cream-300 text-2xl mb-2 opacity-0 animate-fade-up" style="animation-delay:0.1s; animation-fill-mode:forwards;">
+          Handcrafted since 1978
+        </p>
+        <h1 class="font-display text-5xl sm:text-7xl font-bold text-white leading-none mb-6 opacity-0 animate-fade-up" style="animation-delay:0.25s; animation-fill-mode:forwards;">
+          Life is<br/>
+          <span class="text-cream-300 italic">sweeter</span><br/>
+          with a scoop.
+        </h1>
+        <p class="font-body text-cream-200 text-lg mb-8 leading-relaxed opacity-0 animate-fade-up" style="animation-delay:0.4s; animation-fill-mode:forwards;">
+          Over 40 flavors made fresh daily using local dairy and seasonal ingredients. Come in and taste the difference.
+        </p>
+        <div class="flex flex-wrap gap-4 opacity-0 animate-fade-up" style="animation-delay:0.55s; animation-fill-mode:forwards;">
+          <a href="/order" class="btn-primary text-base">
+            🍦 Order Online
+          </a>
+          <a href="/about" class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white border-2 border-white/40 font-display font-semibold px-8 py-3 rounded-full hover:bg-white/30 transition-all duration-200">
+            Our Story
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating cones decoration -->
+    <div class="absolute right-8 top-1/3 hidden lg:flex flex-col gap-8 opacity-0 animate-fade-up" style="animation-delay:0.7s; animation-fill-mode:forwards;">
+      <div class="animate-float text-6xl drop-shadow-xl">🍦</div>
+      <div class="animate-float-delayed text-5xl drop-shadow-xl ml-8">🍨</div>
+      <div class="animate-float text-4xl drop-shadow-xl" style="animation-delay:1s;">🍧</div>
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/60 flex flex-col items-center gap-1 animate-bounce">
+      <span class="text-xs uppercase tracking-widest font-body">Scroll</span>
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M10 14l-6-6h12l-6 6z"/></svg>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       SIGNATURE FLAVORS BANNER
+  ══════════════════════════════════════════════════ -->
+  <section class="bg-strawberry py-5 overflow-hidden">
+    <div class="flex animate-marquee whitespace-nowrap gap-0">
+      {Array(3).fill(null).map(() => (
+        <span class="inline-flex items-center gap-6 text-white font-script text-xl px-6">
+          <span>🍓 Strawberry Fields</span>
+          <span class="text-white/40">✦</span>
+          <span>🍫 Midnight Chocolate</span>
+          <span class="text-white/40">✦</span>
+          <span>🍵 Matcha Dream</span>
+          <span class="text-white/40">✦</span>
+          <span>🫐 Wild Blueberry</span>
+          <span class="text-white/40">✦</span>
+          <span>🍯 Honey Lavender</span>
+          <span class="text-white/40">✦</span>
+          <span>🌿 Mint Chip Madness</span>
+          <span class="text-white/40">✦</span>
+          <span>🍑 Peach Cobbler</span>
+          <span class="text-white/40">✦</span>
+        </span>
+      ))}
+    </div>
+  </section>
+
+  <style>
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-33.333%); }
+    }
+    .animate-marquee { animation: marquee 25s linear infinite; }
+  </style>
+
+  <!-- ═══════════════════════════════════════════════
+       FEATURED FLAVORS GRID
+  ══════════════════════════════════════════════════ -->
+  <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <p class="font-script text-strawberry text-2xl mb-1">Fresh & Delicious</p>
+      <h2 class="font-display text-4xl sm:text-5xl font-bold text-chocolate">Fan Favorites</h2>
+      <div class="w-24 h-1 bg-strawberry rounded-full mx-auto mt-4"></div>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      {[
+        { emoji: '🍓', name: 'Strawberry Fields', desc: 'Fresh-picked local strawberries, swirled into pure cream bliss.', color: 'bg-rose-100', border: 'border-rose-200' },
+        { emoji: '🍫', name: 'Midnight Chocolate', desc: 'Dark Belgian chocolate with a hint of espresso. Dangerously good.', color: 'bg-amber-100', border: 'border-amber-200' },
+        { emoji: '🌿', name: 'Mint Chip Madness', desc: 'Garden-fresh mint with generous dark chocolate chips throughout.', color: 'bg-mint-100', border: 'border-mint-200' },
+        { emoji: '🍯', name: 'Honey Lavender', desc: 'Wildflower honey and fragrant lavender — floral, sweet, serene.', color: 'bg-purple-100', border: 'border-purple-200' },
+        { emoji: '🫐', name: 'Wild Blueberry', desc: 'Maine wild blueberries, bursting with tangy-sweet summer flavor.', color: 'bg-indigo-100', border: 'border-indigo-200' },
+        { emoji: '🍑', name: 'Peach Cobbler', desc: 'Orchard-ripe peaches with a cinnamon graham cracker crumble.', color: 'bg-orange-100', border: 'border-orange-200' },
+        { emoji: '🍵', name: 'Matcha Dream', desc: 'Ceremonial-grade matcha from Kyoto, creamy and perfectly bitter.', color: 'bg-green-100', border: 'border-green-200' },
+        { emoji: '🧁', name: "Birthday Cake", desc: "Vanilla cake batter with rainbow sprinkles. Every day is a party.', color: 'bg-yellow-100", border: 'border-yellow-200' },
+      ].map(flavor => (
+        <div class={`flavor-card rounded-3xl p-6 ${flavor.color} border-2 ${flavor.border} cursor-default`}>
+          <div class="text-5xl mb-4">{flavor.emoji}</div>
+          <h3 class="font-display font-bold text-chocolate text-lg mb-2 leading-tight">{flavor.name}</h3>
+          <p class="font-body text-chocolate/70 text-sm leading-relaxed">{flavor.desc}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center mt-12">
+      <a href="/order" class="btn-primary text-base">
+        See All Flavors & Order →
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       WHY US SECTION
+  ══════════════════════════════════════════════════ -->
+  <section class="bg-waffle-pattern py-24 bg-cream-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <p class="font-script text-strawberry text-2xl mb-2">Why We're Different</p>
+          <h2 class="font-display text-4xl sm:text-5xl font-bold text-chocolate mb-6">
+            Made fresh,<br/><span class="italic text-strawberry">every single day.</span>
+          </h2>
+          <p class="font-body text-chocolate/80 text-lg leading-relaxed mb-8">
+            We've been churning ice cream in this very building since 1978. No shortcuts, no artificial flavors — just the finest local dairy, seasonal fruits, and recipes handed down through three generations.
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[
+              { icon: '🥛', title: 'Local Dairy', desc: 'From farms within 50 miles' },
+              { icon: '🌱', title: 'Seasonal Flavors', desc: 'Changes with the harvest' },
+              { icon: '🚫', title: 'No Artificial Anything', desc: 'Real ingredients only' },
+              { icon: '♻️', title: 'Eco-Friendly', desc: 'Compostable cups & spoons' },
+            ].map(item => (
+              <div class="flex gap-3 items-start bg-white/60 rounded-2xl p-4">
+                <span class="text-3xl">{item.icon}</span>
+                <div>
+                  <div class="font-display font-bold text-chocolate text-sm">{item.title}</div>
+                  <div class="font-body text-chocolate/60 text-xs mt-0.5">{item.desc}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <a href="/about" class="btn-secondary mt-8 inline-flex">
+            Read Our Full Story
+          </a>
+        </div>
+
+        <!-- Photo collage -->
+        <div class="relative h-96 lg:h-auto">
+          <div class="grid grid-cols-2 gap-3 h-full">
+            <img
+              src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=400&q=80"
+              alt="Ice cream scoops"
+              class="rounded-3xl object-cover w-full h-56 lg:h-72 shadow-lg"
+            />
+            <img
+              src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=400&q=80"
+              alt="Ice cream sundae"
+              class="rounded-3xl object-cover w-full h-56 lg:h-72 shadow-lg mt-8"
+            />
+            <img
+              src="https://images.unsplash.com/photo-1488900128323-21503983a07e?w=400&q=80"
+              alt="Making ice cream"
+              class="rounded-3xl object-cover w-full h-44 lg:h-52 shadow-lg -mt-4"
+            />
+            <img
+              src="https://images.unsplash.com/photo-1576506295286-5cda18df43e7?w=400&q=80"
+              alt="Ice cream cone"
+              class="rounded-3xl object-cover w-full h-44 lg:h-52 shadow-lg mt-4"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       TESTIMONIALS
+  ══════════════════════════════════════════════════ -->
+  <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <p class="font-script text-strawberry text-2xl mb-1">Happy Customers</p>
+      <h2 class="font-display text-4xl font-bold text-chocolate">They love us 🍦</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {[
+        { name: "Sarah M.", quote: "The honey lavender is an absolute dream. I drive 45 minutes just for this place and it's worth every mile.", rating: 5 },
+        { name: "James T.", quote: "My family has been coming here since I was a kid. Three generations and counting! Nothing has ever changed — still perfect.", rating: 5 },
+        { name: "Emily R.", quote: "The birthday cake flavor made my daughter's party. Fresh, fun, and absolutely delicious. We'll be back for sure!", rating: 5 },
+      ].map(t => (
+        <div class="bg-white rounded-3xl p-8 shadow-md border border-cream-200 relative">
+          <div class="absolute -top-4 left-8 text-5xl opacity-20 font-serif text-strawberry select-none">&ldquo;</div>
+          <div class="flex mb-4">
+            {Array(t.rating).fill(null).map(() => <span class="text-cream-500 text-lg">★</span>)}
+          </div>
+          <p class="font-body text-chocolate/80 italic leading-relaxed mb-6">{t.quote}</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-strawberry/20 rounded-full flex items-center justify-center text-strawberry font-display font-bold">
+              {t.name[0]}
+            </div>
+            <span class="font-display font-semibold text-chocolate">{t.name}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       CTA BAND
+  ══════════════════════════════════════════════════ -->
+  <section class="bg-strawberry py-16 text-center text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-sprinkle-pattern opacity-20"></div>
+    <div class="relative z-10 max-w-2xl mx-auto px-4">
+      <div class="font-script text-5xl mb-4">Ready for a scoop?</div>
+      <p class="font-body text-white/90 text-lg mb-8">Order ahead for pickup — skip the line and go straight to sweet, creamy bliss.</p>
+      <a href="/order" class="inline-flex items-center gap-2 bg-white text-strawberry font-display font-bold px-10 py-4 rounded-full shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-200 text-lg">
+        🍦 Order Now
+      </a>
+    </div>
+  </section>
+
 </Layout>

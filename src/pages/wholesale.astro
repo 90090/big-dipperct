@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+import WholesalePortal from '../components/WholesalePortal';
+import "../styles/global.css";
+---
+
+<Layout title="Wholesale Portal" description="Wholesale ordering portal for authorized Scoops & Smiles partners.">
+
+  <!-- Page Hero -->
+  <section class="relative h-60 flex items-end overflow-hidden bg-chocolate">
+    <div class="absolute inset-0 bg-waffle-pattern opacity-20"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10 w-full">
+      <p class="font-script text-cream-300 text-xl mb-1">Partners Only</p>
+      <h1 class="font-display text-5xl font-bold text-white">Wholesale Portal</h1>
+    </div>
+    <svg class="absolute bottom-0 w-full" viewBox="0 0 1200 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,40 L0,20 C300,40 600,0 900,20 C1050,30 1150,10 1200,20 L1200,40 Z" fill="#fff8e8"/>
+    </svg>
+  </section>
+
+  <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <WholesalePortal client:load />
+  </section>
+
+</Layout>

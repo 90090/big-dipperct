@@ -1,0 +1,173 @@
+---
+import Layout from '../layouts/Layout.astro';
+import "../styles/global.css";
+---
+
+<Layout title="About Us" description="Learn the story of Scoops & Smiles Ice Cream — family-owned and handcrafted since 1978.">
+
+  <!-- Page Hero -->
+  <section class="relative h-72 flex items-end overflow-hidden bg-chocolate">
+    <img
+      src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=1400&q=80"
+      alt="Inside the ice cream shop"
+      class="absolute inset-0 w-full h-full object-cover object-center opacity-50"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-chocolate/80 to-transparent"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10 w-full">
+      <p class="font-script text-cream-300 text-xl mb-1">Our Story</p>
+      <h1 class="font-display text-5xl font-bold text-white">About Us</h1>
+    </div>
+  </section>
+
+  <!-- Wave transition -->
+  <div class="bg-chocolate w-full overflow-hidden" style="line-height:0">
+    <svg viewBox="0 0 1200 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" class="w-full h-10 block">
+      <path d="M0,0 C200,40 400,40 600,20 C800,0 1000,0 1200,40 L1200,0 L0,0 Z" fill="#fff8e8"/>
+    </svg>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       FOUNDING STORY
+  ══════════════════════════════════════════════════ -->
+  <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div>
+        <p class="font-script text-strawberry text-2xl mb-2">Where it all began</p>
+        <h2 class="font-display text-4xl font-bold text-chocolate mb-6">
+          A family dream, <span class="italic text-strawberry">churned into reality.</span>
+        </h2>
+        <div class="space-y-5 font-body text-chocolate/80 leading-relaxed text-base">
+          <p>
+            In the summer of 1978, Eleanor and George Whitmore opened the doors of a modest shop on Sweet Street with little more than a commercial ice cream churner, a family recipe book, and an unshakeable belief that their community deserved the finest frozen treats around.
+          </p>
+          <p>
+            Eleanor had grown up watching her grandmother churn ice cream by hand on the back porch of their Vermont farmhouse, and she carried that tradition — and those recipes — with her when the family settled in town. George, a local dairy farmer, made sure they'd never be short of the finest cream.
+          </p>
+          <p>
+            What started as a summer side business became a beloved institution. In the first season alone, word spread fast enough that lines stretched out the door every weekend. By 1982, they'd expanded the shop into the neighboring storefront and introduced the now-iconic waffle cone, made fresh on iron presses visible through the front window.
+          </p>
+        </div>
+      </div>
+      <div class="relative">
+        <img
+          src="https://images.unsplash.com/photo-1596704017234-0b285cee1c6c?w=700&q=80"
+          alt="Historic ice cream shop"
+          class="rounded-3xl shadow-2xl w-full object-cover h-96"
+        />
+        <div class="absolute -bottom-6 -left-6 bg-cream-300 rounded-2xl p-5 shadow-xl max-w-xs hidden sm:block">
+          <p class="font-script text-chocolate text-lg leading-snug">"We just wanted to make people smile. Turns out, a good scoop of ice cream goes a long way."</p>
+          <p class="font-body text-chocolate/60 text-sm mt-2">— Eleanor Whitmore, Founder</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       THE BUILDING
+  ══════════════════════════════════════════════════ -->
+  <section class="bg-cream-100 bg-waffle-pattern py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <p class="font-script text-strawberry text-2xl mb-1">Our Home</p>
+        <h2 class="font-display text-4xl font-bold text-chocolate">The Building</h2>
+        <div class="w-20 h-1 bg-strawberry rounded-full mx-auto mt-4"></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-14">
+        <img
+          src="https://images.unsplash.com/photo-1518893883800-45cd0954574b?w=600&q=80"
+          alt="Shop exterior today"
+          class="rounded-3xl shadow-lg object-cover h-64 w-full col-span-1 lg:col-span-2"
+        />
+        <img
+          src="https://images.unsplash.com/photo-1567306301408-9b74779a11af?w=400&q=80"
+          alt="Shop detail"
+          class="rounded-3xl shadow-lg object-cover h-64 w-full"
+        />
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div class="space-y-5 font-body text-chocolate/80 leading-relaxed">
+          <p>
+            The building at 123 Sweet Street was constructed in 1924 as a soda fountain and five-and-dime shop. Its original pressed tin ceilings, black-and-white hexagonal tile floor, and the long marble counter top along the east wall have all been lovingly preserved — and still greet customers every single day.
+          </p>
+          <p>
+            During a 1995 renovation, George discovered original blueprints and soda fountain menus from the 1930s tucked behind a wall panel. Those menus now hang framed in the back dining room, a testament to the building's sweet heritage.
+          </p>
+          <p>
+            The pink-and-white striped awning — a landmark recognized by nearly everyone in town — was installed in 1980 and has been faithfully restored every decade since. The neon "ICE CREAM" sign in the window dates to 1983 and still glows every evening at dusk.
+          </p>
+        </div>
+        <div class="space-y-5 font-body text-chocolate/80 leading-relaxed">
+          <p>
+            In 2010, the Whitmore family undertook a major kitchen expansion, adding a proper production space behind the original shop where all 40+ flavors are now made fresh each morning. Visitors are often treated to the sight — and smell — of fresh batches being pulled from the churners through the large glass viewing window.
+          </p>
+          <p>
+            The building was added to the local historic registry in 2018, and the family continues to steward it with the same care they put into every scoop. Today, George and Eleanor's daughter, Caroline, runs the day-to-day operation, with the third generation of Whitmores already spending summers behind the counter.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       TIMELINE
+  ══════════════════════════════════════════════════ -->
+  <section class="py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14">
+      <p class="font-script text-strawberry text-2xl mb-1">Through the Years</p>
+      <h2 class="font-display text-4xl font-bold text-chocolate">Our Milestones</h2>
+    </div>
+
+    <div class="relative">
+      <!-- Vertical line -->
+      <div class="absolute left-6 top-0 bottom-0 w-0.5 bg-cream-300 hidden sm:block"></div>
+
+      <div class="space-y-10">
+        {[
+          { year: '1978', title: 'Grand Opening', desc: 'Eleanor and George Whitmore open the doors with 12 flavors and a dream.' },
+          { year: '1980', title: 'The Iconic Awning', desc: 'The now-famous pink-and-white striped awning is installed.' },
+          { year: '1982', title: 'Big Expansion', desc: 'The shop expands next door; fresh waffle cones debut — and become an instant obsession.' },
+          { year: '1983', title: 'Neon Dreams', desc: 'The original neon sign is installed and still glows to this day.' },
+          { year: '1995', title: 'A Hidden Discovery', desc: 'Original 1930s soda fountain menus found during renovations are now on display.' },
+          { year: '2010', title: 'Production Kitchen', desc: 'New production space opens with viewing window — 40+ flavors made fresh daily.' },
+          { year: '2018', title: 'Historic Registry', desc: 'The building is officially added to the local historic registry.' },
+          { year: '2023', title: 'Third Generation', desc: 'The Whitmore grandchildren start their first summers behind the counter.' },
+        ].map((item, i) => (
+          <div class="flex gap-6 sm:pl-16 relative">
+            <div class="absolute left-0 top-1 w-12 h-12 bg-strawberry rounded-full flex items-center justify-center text-white font-display font-bold text-xs text-center leading-tight shadow-md hidden sm:flex">
+              {item.year}
+            </div>
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-cream-200 flex-1">
+              <div class="sm:hidden text-xs font-bold text-strawberry uppercase tracking-widest mb-1">{item.year}</div>
+              <h3 class="font-display font-bold text-chocolate text-lg mb-1">{item.title}</h3>
+              <p class="font-body text-chocolate/70 text-sm leading-relaxed">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       TEAM / PHOTO GALLERY
+  ══════════════════════════════════════════════════ -->
+  <section class="bg-strawberry py-16 text-center">
+    <div class="max-w-3xl mx-auto px-4">
+      <p class="font-script text-white/80 text-2xl mb-2">Come say hello</p>
+      <h2 class="font-display text-3xl font-bold text-white mb-4">We'd love to meet you</h2>
+      <p class="font-body text-white/90 leading-relaxed mb-8">
+        Whether you're a first-timer or a 40-year regular, every guest gets the same warm welcome and the same care in every scoop. Stop in and see for yourself.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/order" class="inline-flex items-center gap-2 bg-white text-strawberry font-display font-bold px-8 py-3 rounded-full shadow-lg hover:-translate-y-0.5 transition-all">
+          🍦 Order Online
+        </a>
+        <a href="/contact" class="inline-flex items-center gap-2 bg-white/20 text-white border-2 border-white/40 font-display font-bold px-8 py-3 rounded-full hover:bg-white/30 transition-all">
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+</Layout>

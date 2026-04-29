@@ -1,4 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap');
 @import "tailwindcss";
+
 
 @theme {
   /* This maps your custom colors to Tailwind utilities */
@@ -19,8 +21,6 @@
   --font-script: "Dancing Script", cursive;
 }
 
-/* Move your Google Fonts import after the theme or keep at top */
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap');
 
 html {
   scroll-behavior: smooth;

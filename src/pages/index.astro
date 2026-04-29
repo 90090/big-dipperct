@@ -5,133 +5,156 @@ import "../styles/global.css";
 
 <Layout title="Home">
 
-  <!-- ═══════════════════════════════════════════════
+    <!-- ═══════════════════════════════════════════════
        HERO SECTION
   ══════════════════════════════════════════════════ -->
-  <section class="relative h-screen min-h-[600px] max-h-[900px] flex items-center overflow-hidden">
-
-    <!-- Hero Image (replace src with your actual shop photo) -->
+  <style>
+    @keyframes heroFadeUp {
+      0%   { opacity: 0; transform: translateY(24px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .hero-fade { opacity: 0; animation: heroFadeUp 0.7s ease-out forwards; }
+ 
+    @keyframes heroFloat {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-12px); }
+    }
+    .hero-float          { animation: heroFloat 6s ease-in-out infinite; }
+    .hero-float-delayed  { animation: heroFloat 6s ease-in-out 2s infinite; }
+  </style>
+ 
+  <section class="relative flex items-center overflow-hidden" style="height:100svh; min-height:600px; max-height:900px;">
+ 
+    <!-- Hero Image -->
     <div class="absolute inset-0">
       <img
-        src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=1600&q=80"
-        alt="Scoops & Smiles Ice Cream Shop exterior"
+        src="./Hero.jpg"
+        alt="Big Dipper Ice Cream Shop exterior"
         class="w-full h-full object-cover object-center"
       />
-      <!-- Warm overlay -->
-      <div class="absolute inset-0 bg-gradient-to-r from-chocolate/70 via-chocolate/40 to-transparent"></div>
-      <!-- Bottom fade -->
-      <div class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-cream-50 to-transparent"></div>
+      <!-- Dark left-side overlay so text is always readable -->
+      <div class="absolute inset-0" style="background: linear-gradient(to right, rgba(92,51,23,0.80) 0%, rgba(92,51,23,0.45) 50%, transparent 100%);"></div>
+      <!-- Bottom fade into page background -->
+      <div class="absolute bottom-0 left-0 right-0" style="height:10rem; background: linear-gradient(to top, #fff8e8, transparent);"></div>
     </div>
-
-    <!-- Sprinkle decoration -->
-    <div class="absolute inset-0 bg-sprinkle-pattern opacity-30 pointer-events-none"></div>
-
+ 
     <!-- Hero Content -->
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-      <div class="max-w-xl">
-        <p class="font-script text-cream-300 text-2xl mb-2 opacity-0 animate-fade-up" style="animation-delay:0.1s; animation-fill-mode:forwards;">
-          Handcrafted since 1978
+      <div style="max-width:36rem;">
+ 
+        <p
+          class="hero-fade font-script text-4xl mb-2"
+          style="color:#ffe49a; animation-delay:0.1s;"
+        >
+          Handcrafted since 1986
         </p>
-        <h1 class="font-display text-5xl sm:text-7xl font-bold text-white leading-none mb-6 opacity-0 animate-fade-up" style="animation-delay:0.25s; animation-fill-mode:forwards;">
+ 
+        <h1
+          class="hero-fade font-display font-bold text-white leading-none mb-6"
+          style="font-size:clamp(2.8rem,7vw,4.5rem); animation-delay:0.25s;"
+        >
           Life is<br/>
-          <span class="text-cream-300 italic">sweeter</span><br/>
-          with a scoop.
+          <span style="color:#ffe49a; font-style:italic;">sweeter</span><br/>
+          with Big Dipper.
         </h1>
-        <p class="font-body text-cream-200 text-lg mb-8 leading-relaxed opacity-0 animate-fade-up" style="animation-delay:0.4s; animation-fill-mode:forwards;">
+ 
+        <p
+          class="hero-fade font-body text-xl mb-8 leading-relaxed"
+          style="color:#ffefc4; animation-delay:0.4s;"
+        >
           Over 40 flavors made fresh daily using local dairy and seasonal ingredients. Come in and taste the difference.
         </p>
-        <div class="flex flex-wrap gap-4 opacity-0 animate-fade-up" style="animation-delay:0.55s; animation-fill-mode:forwards;">
-          <a href="/order" class="btn-primary text-base">
-            🍦 Order Online
+ 
+        <div class="hero-fade flex flex-wrap gap-4" style="animation-delay:0.55s;">
+          <a
+            href="/order"
+            style="display:inline-flex; align-items:center; gap:0.5rem; background:#e8688a; color:#fff; font-weight:700; padding:0.75rem 2rem; border-radius:9999px; box-shadow:0 4px 14px rgba(232,104,138,0.4); text-decoration:none; transition:all 0.2s; font-family:'Playfair Display',Georgia,serif;"
+            onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 20px rgba(232,104,138,0.5)';"
+            onmouseout="this.style.transform=''; this.style.boxShadow='0 4px 14px rgba(232,104,138,0.4)';"
+          >
+            Order Online
           </a>
-          <a href="/about" class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white border-2 border-white/40 font-display font-semibold px-8 py-3 rounded-full hover:bg-white/30 transition-all duration-200">
+          <a
+            href="/about"
+            style="display:inline-flex; align-items:center; gap:0.5rem; background:rgba(255,255,255,0.18); backdrop-filter:blur(8px); color:#fff; border:2px solid rgba(255,255,255,0.45); font-weight:700; padding:0.75rem 2rem; border-radius:9999px; text-decoration:none; transition:all 0.2s; font-family:'Playfair Display',Georgia,serif;"
+            onmouseover="this.style.background='rgba(255,255,255,0.28)';"
+            onmouseout="this.style.background='rgba(255,255,255,0.18)';"
+          >
             Our Story
           </a>
         </div>
       </div>
     </div>
-
-    <!-- Floating cones decoration -->
-    <div class="absolute right-8 top-1/3 hidden lg:flex flex-col gap-8 opacity-0 animate-fade-up" style="animation-delay:0.7s; animation-fill-mode:forwards;">
-      <div class="animate-float text-6xl drop-shadow-xl">🍦</div>
-      <div class="animate-float-delayed text-5xl drop-shadow-xl ml-8">🍨</div>
-      <div class="animate-float text-4xl drop-shadow-xl" style="animation-delay:1s;">🍧</div>
-    </div>
-
+ 
     <!-- Scroll hint -->
-    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/60 flex flex-col items-center gap-1 animate-bounce">
-      <span class="text-xs uppercase tracking-widest font-body">Scroll</span>
+    <div class="absolute left-1/2 flex flex-col items-center gap-1" style="bottom:2.5rem; transform:translateX(-50%); color:rgba(255,255,255,0.55); animation:bounce 1s infinite;">
+      <span style="font-size:0.65rem; text-transform:uppercase; letter-spacing:0.15em;">Scroll</span>
       <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M10 14l-6-6h12l-6 6z"/></svg>
     </div>
   </section>
-
-  <!-- ═══════════════════════════════════════════════
-       SIGNATURE FLAVORS BANNER
-  ══════════════════════════════════════════════════ -->
-  <section class="bg-strawberry py-5 overflow-hidden">
-    <div class="flex animate-marquee whitespace-nowrap gap-0">
-      {Array(3).fill(null).map(() => (
-        <span class="inline-flex items-center gap-6 text-white font-script text-xl px-6">
-          <span>🍓 Strawberry Fields</span>
-          <span class="text-white/40">✦</span>
-          <span>🍫 Midnight Chocolate</span>
-          <span class="text-white/40">✦</span>
-          <span>🍵 Matcha Dream</span>
-          <span class="text-white/40">✦</span>
-          <span>🫐 Wild Blueberry</span>
-          <span class="text-white/40">✦</span>
-          <span>🍯 Honey Lavender</span>
-          <span class="text-white/40">✦</span>
-          <span>🌿 Mint Chip Madness</span>
-          <span class="text-white/40">✦</span>
-          <span>🍑 Peach Cobbler</span>
-          <span class="text-white/40">✦</span>
-        </span>
-      ))}
-    </div>
-  </section>
-
+    <!-- CTA BAND -->
   <style>
-    @keyframes marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-33.333%); }
+    @keyframes ctaPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.4); }
+      50%       { box-shadow: 0 0 0 16px rgba(255,255,255,0); }
     }
-    .animate-marquee { animation: marquee 25s linear infinite; }
+    .cta-pulse-btn { animation: ctaPulse 2.4s ease-in-out infinite; }
+    @keyframes ctaSlideIn {
+      0%   { opacity:0; transform: translateY(20px); }
+      100% { opacity:1; transform: translateY(0); }
+    }
+    .cta-card-inner { animation: ctaSlideIn 0.6s ease-out 0.2s both; }
   </style>
-
-  <!-- ═══════════════════════════════════════════════
-       FEATURED FLAVORS GRID
-  ══════════════════════════════════════════════════ -->
-  <section class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-16">
-      <p class="font-script text-strawberry text-2xl mb-1">Fresh & Delicious</p>
-      <h2 class="font-display text-4xl sm:text-5xl font-bold text-chocolate">Fan Favorites</h2>
-      <div class="w-24 h-1 bg-strawberry rounded-full mx-auto mt-4"></div>
-    </div>
-
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-      {[
-        { emoji: '🍓', name: 'Strawberry Fields', desc: 'Fresh-picked local strawberries, swirled into pure cream bliss.', color: 'bg-rose-100', border: 'border-rose-200' },
-        { emoji: '🍫', name: 'Midnight Chocolate', desc: 'Dark Belgian chocolate with a hint of espresso. Dangerously good.', color: 'bg-amber-100', border: 'border-amber-200' },
-        { emoji: '🌿', name: 'Mint Chip Madness', desc: 'Garden-fresh mint with generous dark chocolate chips throughout.', color: 'bg-mint-100', border: 'border-mint-200' },
-        { emoji: '🍯', name: 'Honey Lavender', desc: 'Wildflower honey and fragrant lavender — floral, sweet, serene.', color: 'bg-purple-100', border: 'border-purple-200' },
-        { emoji: '🫐', name: 'Wild Blueberry', desc: 'Maine wild blueberries, bursting with tangy-sweet summer flavor.', color: 'bg-indigo-100', border: 'border-indigo-200' },
-        { emoji: '🍑', name: 'Peach Cobbler', desc: 'Orchard-ripe peaches with a cinnamon graham cracker crumble.', color: 'bg-orange-100', border: 'border-orange-200' },
-        { emoji: '🍵', name: 'Matcha Dream', desc: 'Ceremonial-grade matcha from Kyoto, creamy and perfectly bitter.', color: 'bg-green-100', border: 'border-green-200' },
-        { emoji: '🧁', name: "Birthday Cake", desc: "Vanilla cake batter with rainbow sprinkles. Every day is a party.', color: 'bg-yellow-100", border: 'border-yellow-200' },
-      ].map(flavor => (
-        <div class={`flavor-card rounded-3xl p-6 ${flavor.color} border-2 ${flavor.border} cursor-default`}>
-          <div class="text-5xl mb-4">{flavor.emoji}</div>
-          <h3 class="font-display font-bold text-chocolate text-lg mb-2 leading-tight">{flavor.name}</h3>
-          <p class="font-body text-chocolate/70 text-sm leading-relaxed">{flavor.desc}</p>
+ 
+    <!-- CTA BAND -->
+  <style>
+    @keyframes ctaPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.4); }
+      50%       { box-shadow: 0 0 0 16px rgba(255,255,255,0); }
+    }
+    .cta-pulse-btn { animation: ctaPulse 2.4s ease-in-out infinite; }
+    @keyframes ctaSlideIn {
+      0%   { opacity:0; transform: translateY(20px); }
+      100% { opacity:1; transform: translateY(0); }
+    }
+    .cta-card-inner { animation: ctaSlideIn 0.6s ease-out 0.2s both; }
+    .cta-order-btn:hover { transform: scale(1.06); background: #fff8e8 !important; }
+  </style>
+ 
+  <section class="bg-strawberry relative overflow-hidden px-6 py-14">
+ 
+ 
+    <!-- Content -->
+    <div class="cta-card-inner relative z-10 max-w-5xl mx-auto flex flex-wrap items-center justify-between gap-8">
+ 
+      <!-- Left: copy -->
+      <div class="flex-1 min-w-[260px]">
+        <p class="font-script text-white/80 text-xl mb-1">Skip the line. Beat the heat.</p>
+        <h2 class="font-display font-bold text-white leading-tight mb-3" style="font-size:clamp(1.8rem,4vw,2.5rem);">
+          Order ahead &amp; pick up fresh.
+        </h2>
+        <p class="font-body text-white/90 text-base leading-relaxed max-w-xl text-xl">
+          Choose your flavors online — we'll have them perfectly scooped and ready the moment you walk in.
+        </p>
+ 
+        <!-- Trust badges -->
+        <div class="flex flex-wrap gap-2 mt-5">
+          <span class="font-body font-bold text-xs text-white bg-white/[0.18] backdrop-blur-sm border border-white/30 px-3 py-1.5 rounded-full">No payment needed upfront</span>
+          <span class="font-body font-bold text-xs text-white bg-white/[0.18] backdrop-blur-sm border border-white/30 px-3 py-1.5 rounded-full">Confirmation email sent</span>
         </div>
-      ))}
-    </div>
-
-    <div class="text-center mt-12">
-      <a href="/order" class="btn-primary text-base">
-        See All Flavors & Order →
-      </a>
+      </div>
+ 
+      <!-- Right: button -->
+      <div class="flex flex-col items-center gap-3 flex-shrink-0">
+        <a
+          href="/order"
+          class="cta-pulse-btn cta-order-btn inline-flex items-center gap-2 bg-white text-strawberry font-display font-extrabold text-xl px-11 py-4 rounded-full no-underline transition-all duration-200 whitespace-nowrap"
+        >
+          Order Now
+        </a>
+        <span class="font-body text-xs text-white/60">Free &middot; In-store pickup only</span>
+      </div>
+ 
     </div>
   </section>
 
@@ -147,14 +170,14 @@ import "../styles/global.css";
             Made fresh,<br/><span class="italic text-strawberry">every single day.</span>
           </h2>
           <p class="font-body text-chocolate/80 text-lg leading-relaxed mb-8">
-            We've been churning ice cream in this very building since 1978. No shortcuts, no artificial flavors — just the finest local dairy, seasonal fruits, and recipes handed down through three generations.
+            We've been churning ice cream in this very building since 1986. No shortcuts, no artificial flavors — just the finest local dairy, seasonal fruits, and recipes handed down through two generations.
           </p>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {[
-              { icon: '🥛', title: 'Local Dairy', desc: 'From farms within 50 miles' },
-              { icon: '🌱', title: 'Seasonal Flavors', desc: 'Changes with the harvest' },
-              { icon: '🚫', title: 'No Artificial Anything', desc: 'Real ingredients only' },
-              { icon: '♻️', title: 'Eco-Friendly', desc: 'Compostable cups & spoons' },
+              { icon: '', title: 'Local Dairy', desc: 'From farms within New England' },
+              { icon: '', title: 'Seasonal Flavors', desc: 'Changes with the harvest' },
+              { icon: '', title: 'No Artificial Anything', desc: 'Real ingredients only' },
+              { icon: '', title: 'No Sugar Added & Vegan Options', desc: 'Vegan and Non Sugar Ice Cream Available' },
             ].map(item => (
               <div class="flex gap-3 items-start bg-white/60 rounded-2xl p-4">
                 <span class="text-3xl">{item.icon}</span>
@@ -171,25 +194,25 @@ import "../styles/global.css";
         </div>
 
         <!-- Photo collage -->
-        <div class="relative h-96 lg:h-auto">
+        <div class="relative h-110 lg:h-auto">
           <div class="grid grid-cols-2 gap-3 h-full">
             <img
-              src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=400&q=80"
+              src="./icecream2.jpg"
               alt="Ice cream scoops"
               class="rounded-3xl object-cover w-full h-56 lg:h-72 shadow-lg"
             />
             <img
-              src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=400&q=80"
+              src="./icecreampic.png"
               alt="Ice cream sundae"
               class="rounded-3xl object-cover w-full h-56 lg:h-72 shadow-lg mt-8"
             />
             <img
-              src="https://images.unsplash.com/photo-1488900128323-21503983a07e?w=400&q=80"
+              src="./cakepic.jpg"
               alt="Making ice cream"
-              class="rounded-3xl object-cover w-full h-44 lg:h-52 shadow-lg -mt-4"
+              class="rounded-3xl object-cover w-full h-70 shadow-lg -mt-4"
             />
             <img
-              src="https://images.unsplash.com/photo-1576506295286-5cda18df43e7?w=400&q=80"
+              src="./piepic.jpg"
               alt="Ice cream cone"
               class="rounded-3xl object-cover w-full h-44 lg:h-52 shadow-lg mt-4"
             />
@@ -209,9 +232,9 @@ import "../styles/global.css";
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       {[
-        { name: "Sarah M.", quote: "The honey lavender is an absolute dream. I drive 45 minutes just for this place and it's worth every mile.", rating: 5 },
-        { name: "James T.", quote: "My family has been coming here since I was a kid. Three generations and counting! Nothing has ever changed — still perfect.", rating: 5 },
-        { name: "Emily R.", quote: "The birthday cake flavor made my daughter's party. Fresh, fun, and absolutely delicious. We'll be back for sure!", rating: 5 },
+        { name: "Shane Sciongay ", quote: "Loved there ice cream went with my girlfriend perfect lil spot to enjoy some quality time.... Absolutely recommend", rating: 5 },
+        { name: "Eddy B", quote: "Best ice cream in the area no doubt", rating: 5 },
+        { name: "Rondrea Douglas", quote: "My kids love the shakes...I do too. The ice cream is so fresh and tasty.", rating: 5 },
       ].map(t => (
         <div class="bg-white rounded-3xl p-8 shadow-md border border-cream-200 relative">
           <div class="absolute -top-4 left-8 text-5xl opacity-20 font-serif text-strawberry select-none">&ldquo;</div>
@@ -227,20 +250,6 @@ import "../styles/global.css";
           </div>
         </div>
       ))}
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════
-       CTA BAND
-  ══════════════════════════════════════════════════ -->
-  <section class="bg-strawberry py-16 text-center text-white relative overflow-hidden">
-    <div class="absolute inset-0 bg-sprinkle-pattern opacity-20"></div>
-    <div class="relative z-10 max-w-2xl mx-auto px-4">
-      <div class="font-script text-5xl mb-4">Ready for a scoop?</div>
-      <p class="font-body text-white/90 text-lg mb-8">Order ahead for pickup — skip the line and go straight to sweet, creamy bliss.</p>
-      <a href="/order" class="inline-flex items-center gap-2 bg-white text-strawberry font-display font-bold px-10 py-4 rounded-full shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-200 text-lg">
-        🍦 Order Now
-      </a>
     </div>
   </section>
 

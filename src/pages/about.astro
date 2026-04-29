@@ -6,59 +6,64 @@ import "../styles/global.css";
 <Layout title="About Us" description="Learn the story of Scoops & Smiles Ice Cream — family-owned and handcrafted since 1978.">
 
   <!-- Page Hero -->
-  <section class="relative h-72 flex items-end overflow-hidden bg-chocolate">
-    <img
-      src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=1400&q=80"
-      alt="Inside the ice cream shop"
-      class="absolute inset-0 w-full h-full object-cover object-center opacity-50"
-    />
-    <div class="absolute inset-0 bg-gradient-to-t from-chocolate/80 to-transparent"></div>
+  <section class="relative h-60 flex items-end overflow-hidden bg-strawberry">
+    <div class="absolute inset-0 bg-sprinkle-pattern opacity-30"></div>
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10 w-full">
-      <p class="font-script text-cream-300 text-xl mb-1">Our Story</p>
+      <p class="font-script text-white/80 text-xl mb-1">Our Story</p>
       <h1 class="font-display text-5xl font-bold text-white">About Us</h1>
     </div>
+    <svg class="absolute bottom-0 w-full" viewBox="0 0 1200 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,40 L0,20 C300,0 600,40 900,20 C1050,10 1150,30 1200,20 L1200,40 Z" fill="#fff8e8"/>
+    </svg>
   </section>
 
-  <!-- Wave transition -->
-  <div class="bg-chocolate w-full overflow-hidden" style="line-height:0">
-    <svg viewBox="0 0 1200 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" class="w-full h-10 block">
-      <path d="M0,0 C200,40 400,40 600,20 C800,0 1000,0 1200,40 L1200,0 L0,0 Z" fill="#fff8e8"/>
-    </svg>
-  </div>
 
-  <!-- ═══════════════════════════════════════════════
-       FOUNDING STORY
-  ══════════════════════════════════════════════════ -->
   <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      
+      <!-- LEFT: TEXT -->
       <div>
-        <p class="font-script text-strawberry text-2xl mb-2">Where it all began</p>
+        <p class="font-script text-strawberry text-2xl mb-2">
+          Where it all began
+        </p>
         <h2 class="font-display text-4xl font-bold text-chocolate mb-6">
           A family dream, <span class="italic text-strawberry">churned into reality.</span>
         </h2>
-        <div class="space-y-5 font-body text-chocolate/80 leading-relaxed text-base">
+
+        <div class="space-y-5 font-body text-chocolate/80 text-lg leading-relaxed text-base">
           <p>
-            In the summer of 1978, Eleanor and George Whitmore opened the doors of a modest shop on Sweet Street with little more than a commercial ice cream churner, a family recipe book, and an unshakeable belief that their community deserved the finest frozen treats around.
+            The Big Dipper Ice Cream Parlour was founded in Prospect, CT in 1986 by Harry Rowe Jr and his wife, Barbara. To learn the trade, Harry Rowe, Jr. attended Rutgers University where he studied commercial ice cream making where only 25 people get accepted per year and is considered one of the best ice cream manufacturing schools. There, Harry met ice cream makers from all over the world to perfect his trade.
           </p>
           <p>
-            Eleanor had grown up watching her grandmother churn ice cream by hand on the back porch of their Vermont farmhouse, and she carried that tradition — and those recipes — with her when the family settled in town. George, a local dairy farmer, made sure they'd never be short of the finest cream.
+            Harry learned that the secret of fine ice cream does not come from a book, it comes from the heart and the love for the ice cream trade. The original store was located at 52 Waterbury Road and is now located at 91 Waterbury Road, Prospect.
           </p>
           <p>
-            What started as a summer side business became a beloved institution. In the first season alone, word spread fast enough that lines stretched out the door every weekend. By 1982, they'd expanded the shop into the neighboring storefront and introduced the now-iconic waffle cone, made fresh on iron presses visible through the front window.
+            Now operated by son Harry Rowe, III and mom Barbara, The Big Dipper still continues the tradition with over 50 flavors and countless awards from the National Ice Cream and Yogurts Retails Association. It has also been voted Best Ice Cream from the Waterbury Observer for the past 20 years. The Big Dipper homestyle ice cream is freshly made on the premises in small batches to ensure the finest product is delivered from local dairies.
           </p>
         </div>
       </div>
-      <div class="relative">
-        <img
-          src="https://images.unsplash.com/photo-1596704017234-0b285cee1c6c?w=700&q=80"
-          alt="Historic ice cream shop"
-          class="rounded-3xl shadow-2xl w-full object-cover h-96"
-        />
-        <div class="absolute -bottom-6 -left-6 bg-cream-300 rounded-2xl p-5 shadow-xl max-w-xs hidden sm:block">
-          <p class="font-script text-chocolate text-lg leading-snug">"We just wanted to make people smile. Turns out, a good scoop of ice cream goes a long way."</p>
-          <p class="font-body text-chocolate/60 text-sm mt-2">— Eleanor Whitmore, Founder</p>
+
+      <!-- RIGHT: STACKED IMAGES -->
+      <div class="flex flex-col gap-6">
+        
+        <div class="relative">
+          <img
+            src="./harrysrabout.jpg"
+            alt="Historic ice cream shop"
+            class="rounded-3xl shadow-2xl w-full object-cover h-72 lg:h-80"
+          />
         </div>
+
+        <div class="relative">
+          <img
+            src="./harryandmom.jpg"
+            alt="Harry and Barbara"
+            class="rounded-3xl shadow-2xl w-full object-cover h-150"
+          />
+        </div>
+
       </div>
+
     </div>
   </section>
 
@@ -75,18 +80,18 @@ import "../styles/global.css";
 
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-14">
         <img
-          src="https://images.unsplash.com/photo-1518893883800-45cd0954574b?w=600&q=80"
-          alt="Shop exterior today"
-          class="rounded-3xl shadow-lg object-cover h-64 w-full col-span-1 lg:col-span-2"
+          src="./Hero.jpg"
+          alt="Harry and Barabra Rowe, founders of The Big Dipper"
+          class="rounded-3xl shadow-lg object-cover w-full h-110 col-span-1 lg:col-span-2"
         />
         <img
-          src="https://images.unsplash.com/photo-1567306301408-9b74779a11af?w=400&q=80"
+          src="./harryandbarbara.jpg"
           alt="Shop detail"
-          class="rounded-3xl shadow-lg object-cover h-64 w-full"
+          class="rounded-3xl shadow-lg object-cover h-110 w-full"
         />
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <!-- <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
         <div class="space-y-5 font-body text-chocolate/80 leading-relaxed">
           <p>
             The building at 123 Sweet Street was constructed in 1924 as a soda fountain and five-and-dime shop. Its original pressed tin ceilings, black-and-white hexagonal tile floor, and the long marble counter top along the east wall have all been lovingly preserved — and still greet customers every single day.
@@ -106,21 +111,20 @@ import "../styles/global.css";
             The building was added to the local historic registry in 2018, and the family continues to steward it with the same care they put into every scoop. Today, George and Eleanor's daughter, Caroline, runs the day-to-day operation, with the third generation of Whitmores already spending summers behind the counter.
           </p>
         </div>
-      </div>
+      </div> -->
     </div>
   </section>
 
   <!-- ═══════════════════════════════════════════════
        TIMELINE
   ══════════════════════════════════════════════════ -->
-  <section class="py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- <section class="py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-14">
       <p class="font-script text-strawberry text-2xl mb-1">Through the Years</p>
       <h2 class="font-display text-4xl font-bold text-chocolate">Our Milestones</h2>
     </div>
 
     <div class="relative">
-      <!-- Vertical line -->
       <div class="absolute left-6 top-0 bottom-0 w-0.5 bg-cream-300 hidden sm:block"></div>
 
       <div class="space-y-10">
@@ -147,7 +151,7 @@ import "../styles/global.css";
         ))}
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- ═══════════════════════════════════════════════
        TEAM / PHOTO GALLERY
@@ -161,7 +165,7 @@ import "../styles/global.css";
       </p>
       <div class="flex flex-wrap justify-center gap-4">
         <a href="/order" class="inline-flex items-center gap-2 bg-white text-strawberry font-display font-bold px-8 py-3 rounded-full shadow-lg hover:-translate-y-0.5 transition-all">
-          🍦 Order Online
+          Order Online
         </a>
         <a href="/contact" class="inline-flex items-center gap-2 bg-white/20 text-white border-2 border-white/40 font-display font-bold px-8 py-3 rounded-full hover:bg-white/30 transition-all">
           Contact Us

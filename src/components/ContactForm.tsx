@@ -28,7 +28,6 @@ export default function ContactForm() {
   if (status === 'success') {
     return (
       <div className="text-center py-16">
-        <div className="text-7xl mb-6">💌</div>
         <h2 className="font-display text-4xl font-bold text-chocolate mb-4">Message Sent!</h2>
         <p className="font-body text-chocolate/70 text-lg max-w-sm mx-auto mb-8">
           Thanks, {form.name}! We'll get back to you within one business day.
@@ -89,7 +88,7 @@ export default function ContactForm() {
 
       <button type="submit" disabled={status === 'submitting'}
         className="btn-primary w-full justify-center py-4 text-base disabled:opacity-60 disabled:cursor-not-allowed">
-        {status === 'submitting' ? '⏳ Sending...' : '💌 Send Message'}
+        {status === 'submitting' ? 'Sending...' : 'Send Message'}
       </button>
     </form>
   );

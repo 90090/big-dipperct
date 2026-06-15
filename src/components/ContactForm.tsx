@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react';
 
-const LAMBDA_URL = 'https://YOUR_LAMBDA_URL.amazonaws.com/prod/send-order';
+const LAMBDA_URL = 'https://f1hhdoctn3.execute-api.us-east-1.amazonaws.com/form';
 
 export default function ContactForm() {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });

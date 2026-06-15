@@ -3,7 +3,7 @@ import { useState, type FormEvent } from 'react';
 // ─────────────────────────────────────────────────────────────
 //  CONFIG
 // ─────────────────────────────────────────────────────────────
-const LAMBDA_URL        = 'https://YOUR_LAMBDA_URL.amazonaws.com/prod/send-order';
+const LAMBDA_URL        = 'https://f1hhdoctn3.execute-api.us-east-1.amazonaws.com/form';
 const BUSINESS_EMAIL    = 'orders@yourdomain.com'; // ← change to your business email
 
 const MIN_HOURS_CUSTOM  = 72;  // cake / pie

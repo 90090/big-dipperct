@@ -4,7 +4,7 @@ import { useState, type FormEvent } from 'react';
 //  CONFIG
 // ─────────────────────────────────────────────────────────────
 const LAMBDA_URL        = 'https://f1hhdoctn3.execute-api.us-east-1.amazonaws.com/form';
-const BUSINESS_EMAIL    = 'orders@yourdomain.com'; // ← change to your business email
+const BUSINESS_EMAIL    = 'orders@bigdipper.com'; // ← change to your business email
 
 const MIN_HOURS_CUSTOM  = 72;  // cake / pie
 const MIN_HOURS_ICE     = 2;   // ice cream / ufo (unused in date field but noted in footer)

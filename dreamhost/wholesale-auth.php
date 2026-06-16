@@ -4,9 +4,7 @@
  * ──────────────────────────────────────────────────────────────
  * SECURE wholesale portal authentication.
  *
- * This file should be uploaded to your web server.
- *
- * Upload to: /home/yourusername/bigdipper.com/wholesale-auth.php
+ * Upload to: /home/yourusername/bigdipperseymour.com/wholesale-auth.php
  *            (i.e. inside public_html / webroot — it must be reachable)
  *
  * Password hashes live in: wholesale-passwords.php
@@ -39,7 +37,7 @@ session_set_cookie_params([
     'path'     => '/',
     'secure'   => true,      // HTTPS only
     'httponly' => true,       // not accessible via JS
-    'samesite' => 'Strict',
+    'samesite' => 'Lax',
 ]);
 session_start();
 

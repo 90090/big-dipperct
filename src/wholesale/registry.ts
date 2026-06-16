@@ -28,6 +28,7 @@ import nutmegFudgeCompany    from './customers/nutmeg-fudge-company';
 import rogersOrchards        from './customers/rogers-orchards';
 import fenwicksIceCream      from './customers/fenwicks-ice-cream';
 import localGourmetSouthbury from './customers/local-gourmet-southbury';
+import watertownMeat from './customers/watertown-meat';
 // import nextCustomer        from './customers/next-customer';
 
 export const ALL_CUSTOMERS: CustomerConfig[] = [
@@ -48,6 +49,7 @@ export const ALL_CUSTOMERS: CustomerConfig[] = [
   rogersOrchards,
   fenwicksIceCream,
   localGourmetSouthbury,
+  watertownMeat,
   // nextCustomer,
 ];
 

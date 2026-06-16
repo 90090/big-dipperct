@@ -1,4 +1,4 @@
-import { useState, useMemo, type FormEvent } from 'react';
+import { useState, useMemo, useEffect, type FormEvent } from 'react';
 import type { CustomerConfig, ItemGroup } from '../wholesale/types';
 
 // ─────────────────────────────────────────────────────────────
@@ -98,7 +98,6 @@ function WholesaleOrderForm({ customer }: { customer: CustomerConfig }) {
   if (status === 'success') {
     return (
       <div className="text-center py-20 max-w-lg mx-auto px-4">
-        <div className="text-7xl mb-6">✅</div>
         <h2 className="font-display text-4xl font-bold text-chocolate mb-3">Order Submitted!</h2>
         <p className="font-body text-chocolate/70 mb-2">
           A confirmation was sent to <strong>{email}</strong>.
@@ -127,7 +126,6 @@ function WholesaleOrderForm({ customer }: { customer: CustomerConfig }) {
 
       {/* Header */}
       <div className="bg-chocolate text-white rounded-2xl px-6 py-4 flex items-center gap-4">
-        <span className="text-3xl">🏢</span>
         <div>
           <div className="font-display font-bold text-lg">{customer.name}</div>
           {hasLocations && <div className="text-cream-200 text-sm">Select your location below</div>}
@@ -136,7 +134,7 @@ function WholesaleOrderForm({ customer }: { customer: CustomerConfig }) {
 
       {customer.orderNote && (
         <div className="bg-cream-100 border border-cream-300 rounded-2xl px-5 py-3 font-body text-sm text-chocolate/80">
-          📌 {customer.orderNote}
+          {customer.orderNote}
         </div>
       )}
 
@@ -231,7 +229,7 @@ function WholesaleOrderForm({ customer }: { customer: CustomerConfig }) {
 
       {status === 'error' && (
         <div className="bg-rose-50 border border-rose-200 rounded-2xl p-4 text-rose-700 font-body text-sm">
-          ⚠️ {errMsg}
+          {errMsg}
         </div>
       )}
 
@@ -241,8 +239,8 @@ function WholesaleOrderForm({ customer }: { customer: CustomerConfig }) {
         className="btn-primary w-full justify-center text-lg py-4 disabled:opacity-60 disabled:cursor-not-allowed"
       >
         {status === 'submitting'
-          ? <><span className="animate-spin inline-block">⏳</span> Submitting…</>
-          : <>📦 Submit Order</>}
+          ? <>Submitting…</>
+          : <>Submit Order</>}
       </button>
 
       <p className="text-center text-xs text-chocolate/50 font-body pb-4">
@@ -260,18 +258,38 @@ function AuthScreen({ onAuth }: { onAuth: (customer: CustomerConfig) => void }) 
   const [showPassword, setShowPassword] = useState(false);
   const [status, setStatus]             = useState<'idle' | 'checking' | 'error'>('idle');
   const [csrfToken, setCsrfToken]       = useState<string | null>(null);
+  const [tokenLoading, setTokenLoading] = useState(true);
 
-  // Fetch a CSRF token on mount
-  useState(() => {
+  // Fetch a CSRF token on mount (and once only, even under Strict Mode)
+  useEffect(() => {
+    let cancelled = false;
+
     fetch(PHP_AUTH_URL, { method: 'GET', credentials: 'include' })
       .then(res => res.json())
-      .then(data => setCsrfToken(data.csrfToken ?? null))
-      .catch(() => setCsrfToken(null));
-    return null;
-  });
+      .then(data => {
+        if (!cancelled) {
+          setCsrfToken(data.csrfToken ?? null);
+          setTokenLoading(false);
+        }
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setCsrfToken(null);
+          setTokenLoading(false);
+        }
+      });
+
+    return () => { cancelled = true; };
+  }, []);
 
   const handleAuth = async (e: FormEvent) => {
     e.preventDefault();
+
+    if (!csrfToken) {
+      setStatus('error');
+      return;
+    }
+
     setStatus('checking');
 
     try {
@@ -288,6 +306,17 @@ function AuthScreen({ onAuth }: { onAuth: (customer: CustomerConfig) => void }) 
         const customer = getCustomerById(data.customerId);
         if (customer) { onAuth(customer); return; }
       }
+
+      // Refresh the CSRF token after any failed attempt — the server
+      // rotates it on success, and we want a fresh one ready either way.
+      try {
+        const refreshRes = await fetch(PHP_AUTH_URL, { method: 'GET', credentials: 'include' });
+        const refreshData = await refreshRes.json();
+        setCsrfToken(refreshData.csrfToken ?? null);
+      } catch {
+        setCsrfToken(null);
+      }
+
       setStatus('error');
       setPassword('');
     } catch {
@@ -312,14 +341,14 @@ function AuthScreen({ onAuth }: { onAuth: (customer: CustomerConfig) => void }) 
                 required
                 value={password}
                 onChange={e => { setPassword(e.target.value); setStatus('idle'); }}
-                className="form-input pr-12"
+                className="form-input pr-16"
                 placeholder="Enter your password"
                 autoComplete="current-password"
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(v => !v)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-chocolate/40 hover:text-chocolate/80 transition-colors"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-chocolate/40 hover:text-chocolate/80 transition-colors text-xs font-bold uppercase tracking-wide"
                 aria-label="Toggle visibility"
               >
                 {showPassword ? 'Hide' : 'Show'}
@@ -329,13 +358,13 @@ function AuthScreen({ onAuth }: { onAuth: (customer: CustomerConfig) => void }) 
 
           {status === 'error' && (
             <div className="bg-rose-50 border border-rose-200 rounded-2xl p-4 text-rose-700 text-sm font-body">
-              ⚠️ Incorrect password. <a href="/contact" className="underline">Contact us</a> if you need help.
+              Incorrect password. <a href="/contact" className="underline">Contact us</a> if you need help.
             </div>
           )}
 
           <button
             type="submit"
-            disabled={status === 'checking' || !password}
+            disabled={status === 'checking' || !password || tokenLoading}
             className="btn-primary w-full justify-center disabled:opacity-60 disabled:cursor-not-allowed"
           >
             {status === 'checking'

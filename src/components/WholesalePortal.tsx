@@ -53,12 +53,13 @@ function WholesaleOrderForm({ customer }: { customer: CustomerConfig }) {
     setStatus('submitting');
     setErrMsg('');
 
-    // Build the list of ordered items (qty > 0 only)
-    const orderedItems: { name: string; quantity: number }[] = [];
+    // Build the list of ordered items (qty > 0 only), tagged with their category
+    const orderedItems: { name: string; quantity: number; category: string }[] = [];
     catalog.forEach((group, gi) => {
+      const category = group.heading ?? 'Items';
       group.items.forEach((name, ii) => {
         const qty = quantities[itemKey(gi, ii)] ?? 0;
-        if (qty > 0) orderedItems.push({ name, quantity: qty });
+        if (qty > 0) orderedItems.push({ name, quantity: qty, category });
       });
     });
 

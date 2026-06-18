@@ -3,7 +3,7 @@ import type { CustomerConfig } from '../types';
 const rarasFrozenExpress: CustomerConfig = {
   id: 'raras-frozen-express',
   name: 'Raras Frozen Express',
-  leadTimeDays: 3,
+  leadTimeDays: 0,
 
   catalog: [
     {

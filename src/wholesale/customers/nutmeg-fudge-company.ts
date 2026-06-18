@@ -3,7 +3,7 @@ import type { CustomerConfig } from '../types';
 const nutmegFudgeCompany: CustomerConfig = {
   id: 'nutmeg-fudge-company',
   name: 'Nutmeg Fudge Company',
-  leadTimeDays: 3,
+  leadTimeDays: 0,
 
   catalog: [
     {

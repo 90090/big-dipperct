@@ -3,7 +3,7 @@ import type { CustomerConfig } from '../types';
 const capitolIceCream: CustomerConfig = {
   id: 'capitol-ice-cream',
   name: 'Capitol Ice Cream',
-  leadTimeDays: 3,
+  leadTimeDays: 0,
 
   catalog: [
     {

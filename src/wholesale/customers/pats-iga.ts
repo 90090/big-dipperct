@@ -3,7 +3,7 @@ import type { CustomerConfig } from '../types';
 const patsIga: CustomerConfig = {
   id: 'pats-iga',
   name: "Pat's IGA",
-  leadTimeDays: 3,
+  leadTimeDays: 0,
 
   catalog: [
     {

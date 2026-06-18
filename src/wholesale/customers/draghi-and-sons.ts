@@ -3,7 +3,7 @@ import type { CustomerConfig } from '../types';
 const draghiAndSons: CustomerConfig = {
   id: 'draghi-and-sons',
   name: 'Draghi and Sons',
-  leadTimeDays: 3,
+  leadTimeDays: 0,
 
   catalog: [
     {

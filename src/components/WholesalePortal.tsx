@@ -23,7 +23,7 @@ function itemKey(groupIdx: number, itemIdx: number): string {
 //  ORDER FORM  (renders from a CustomerConfig)
 // ─────────────────────────────────────────────────────────────
 function WholesaleOrderForm({ customer }: { customer: CustomerConfig }) {
-  const leadDays = customer.leadTimeDays ?? 3;
+  const leadDays = customer.leadTimeDays ?? 0;
   const hasLocations = (customer.locations?.length ?? 0) > 1;
 
   const [location, setLocation] = useState(customer.locations?.[0] ?? '');

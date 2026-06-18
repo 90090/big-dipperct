@@ -3,7 +3,7 @@ import type { CustomerConfig } from '../types';
 const localGourmetSouthbury: CustomerConfig = {
   id: 'local-gourmet-southbury',
   name: 'Local Gourmet Southbury',
-  leadTimeDays: 3,
+  leadTimeDays: 0,
 
   catalog: [
     {

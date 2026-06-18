@@ -3,7 +3,7 @@ import type { CustomerConfig } from '../types';
 const hallmarkDriveIn: CustomerConfig = {
   id: 'hallmark-drive-in',
   name: 'Hallmark Drive In',
-  leadTimeDays: 3,
+  leadTimeDays: 0,
 
   catalog: [
     {

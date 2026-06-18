@@ -3,7 +3,7 @@ import type { CustomerConfig } from '../types';
 const microcreamery: CustomerConfig = {
   id: 'microcreamery',
   name: 'MicroCreamery',
-  leadTimeDays: 3,
+  leadTimeDays: 0,
 
   // Multiple locations — dropdown will show on the form
   locations: [

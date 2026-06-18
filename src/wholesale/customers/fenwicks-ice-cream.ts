@@ -3,7 +3,7 @@ import type { CustomerConfig } from '../types';
 const fenwicksIceCream: CustomerConfig = {
   id: 'fenwicks-ice-cream',
   name: 'Fenwicks Ice Cream',
-  leadTimeDays: 3,
+  leadTimeDays: 0,
 
   catalog: [
     {

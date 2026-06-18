@@ -7,7 +7,7 @@ import type { CustomerConfig } from '../types';
 const watertownMeat: CustomerConfig = {
   id: 'watertown-meat',
   name: 'Watertown Meat',
-  leadTimeDays: 3,
+  leadTimeDays: 0,
 
   catalog: [
     {

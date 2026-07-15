@@ -10,7 +10,7 @@ const acPetersons: CustomerConfig = {
       heading: 'Ice Cream',
       items: [
         'Almond Joy', 'Butter Pecan', 'Chocolate Chip', 'Chocolate Peanut Butter', 'Coffee',
-        'Coffee Oreo', 'Chocolate', 'Cookie Monster', 'Graham Jam', 'Mint Chocolate Chip',
+        'Coffee Oreo', 'Chocolate', 'Cookie Monster','Graham Jam', 'Mint Chocolate Chip','Moose Tracks',
         'Oreo', 'Orange Pineapple', 'Peach', 'Salted Caramel Chip', 'Toasted Coconut', 'Vanilla',
       ],
     },

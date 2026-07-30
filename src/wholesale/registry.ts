@@ -31,6 +31,7 @@ import localGourmetSouthbury from './customers/local-gourmet-southbury';
 import watertownMeat from './customers/watertown-meat';
 import bigDipperSeymour from './customers/big-dipper-seymour';
 import theSmithyStore from './customers/thesmithystore';
+import villarinasPastaShop from './customers/villarinas-pasta-shop';
 // import nextCustomer        from './customers/next-customer';
 
 export const ALL_CUSTOMERS: CustomerConfig[] = [
@@ -54,6 +55,7 @@ export const ALL_CUSTOMERS: CustomerConfig[] = [
   watertownMeat,
   bigDipperSeymour,
   theSmithyStore,
+  villarinasPastaShop,
   // nextCustomer,
 ];
 

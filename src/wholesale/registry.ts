@@ -32,6 +32,7 @@ import watertownMeat from './customers/watertown-meat';
 import bigDipperSeymour from './customers/big-dipper-seymour';
 import theSmithyStore from './customers/thesmithystore';
 import villarinasPastaShop from './customers/villarinas-pasta-shop';
+import tonnsMarketplace from './customers/tonns-marketplace';
 // import nextCustomer        from './customers/next-customer';
 
 export const ALL_CUSTOMERS: CustomerConfig[] = [
@@ -56,6 +57,7 @@ export const ALL_CUSTOMERS: CustomerConfig[] = [
   bigDipperSeymour,
   theSmithyStore,
   villarinasPastaShop,
+  tonnsMarketplace,
   // nextCustomer,
 ];
 
